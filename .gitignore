@@ -1,0 +1,25 @@
+# Виртуальные окружения
+.venv/
+env/
+venv/
+
+# Кеши Python
+pycache/
+*.pyc
+*.pyo
+*.pyd
+
+# Логи и временные файлы
+*.log
+
+# VS Code / Codium
+.vscode/
+.history/
+
+# Тестовые артефакты
+.coverage
+htmlcov/
+pytest_cache/
+
+# Секреты и ключи
+.env
