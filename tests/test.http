@@ -1,2 +1,20 @@
 ### Проверка API
 GET http://127.0.0.1:8000/
+###Success
+
+### Добавление пользователя
+POST http://127.0.0.1:8000/users/?name=Apps_User2&email=Apps_User2%40example.com
+
+accept: application/json
+Content-Type: application/json
+
+{
+  "name": "Apps_User_2",
+  "id": 2,
+  "email": "Apps_User_2@example.com"
+}
+###Success
+
+### Получение списка всех пользователей
+GET http://127.0.0.1:8000/users/
+###Success
