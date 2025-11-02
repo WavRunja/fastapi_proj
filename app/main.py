@@ -1,8 +1,9 @@
+# app/main.py
 from fastapi import FastAPI
 from app.database import Base, engine
 from app.routers import users
 
-# Создаем таблицы
+# Создаем таблицы (пока синхронно)
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="FastAPI Mini App")
@@ -12,5 +13,5 @@ app.include_router(users.router)
 
 
 @app.get("/")
-def root():
+async def root():
     return {"message": "Добро пожаловать в FastAPI mini app!"}
