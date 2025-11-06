@@ -3,16 +3,28 @@ version: "3.3"
 services:
   web:
     build: .
-    container_name: fastapi_mini_app
+    container_name: fastapi_mini_app_web
     ports:
       - "8000:8000"
     volumes:
       - ./app:/app/app
+    env_file:
+      - .env
     command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
 
   tests:
     build: .
+    container_name: fastapi_mini_app_tests
     command: pytest -v
     volumes:
       - ./app:/app/app
       - ./tests:/app/tests
+    depends_on:
+      - web
+
+  lint:
+    build: .
+    container_name: fastapi_mini_app_lint
+    command: sh -c "flake8 app && mypy app"
+    volumes:
+      - ./app:/app/app
