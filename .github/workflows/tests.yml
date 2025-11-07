@@ -26,3 +26,9 @@ jobs:
 
     - name: Run pytest
       run: pytest -v
+
+    - name: Run linters
+      run: |
+        pip install black flake8
+        black --check app
+        flake8 app
