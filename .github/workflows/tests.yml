@@ -35,7 +35,7 @@ jobs:
         run: pytest -v
 
       - name: Run type checks (mypy)
-        run: mypy app
+        run: mypy --explicit-package-bases app
 
       - name: Run black (check)
         run: black --check app
